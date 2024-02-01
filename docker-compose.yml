@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+    backend_rest:
+        image: test_image
+        build:
+            context: ./docker
+            dockerfile: Dockerfile            
+        privileged: true
+        network_mode: "host"
+        user: dev
+        init: true
+        stdin_open: true
+        tty: true
+        working_dir: /home/dev/rest
+        command: bash
+        volumes:
+            - type: bind
+              source: .
+              target: /home/dev/rest
+    mariadb:
+        image: mariadb:${MARIADB_VERSION:-10.11}
+        restart: always
+        ports:
+            - "3306:3306"
+        environment:
+            MARIADB_ROOT_PASSWORD: password
+            MARIADB_DATABASE: dev_db
