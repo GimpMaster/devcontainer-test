@@ -3,6 +3,5 @@
 	"name": "backend_rest_devcontainer",
 	"dockerComposeFile": "../docker-compose.yml",
 	"service": "backend_rest",
-	"remoteUser": "dev",
-	"workspaceFolder": "/home/dev/rest"
+	"workspaceFolder": "/root/rest"
 }

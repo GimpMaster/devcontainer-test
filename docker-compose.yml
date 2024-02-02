@@ -8,16 +8,15 @@ services:
             dockerfile: Dockerfile            
         privileged: true
         network_mode: "host"
-        user: dev
         init: true
         stdin_open: true
         tty: true
-        working_dir: /home/dev/rest
+        working_dir: /root/rest
         command: bash
         volumes:
             - type: bind
               source: .
-              target: /home/dev/rest
+              target: /root/rest
     mariadb:
         image: mariadb:${MARIADB_VERSION:-10.11}
         restart: always
