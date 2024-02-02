@@ -7,7 +7,6 @@ services:
             context: ./docker
             dockerfile: Dockerfile            
         privileged: true
-        network_mode: "host"
         init: true
         stdin_open: true
         tty: true
